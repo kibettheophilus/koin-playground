@@ -1,18 +1,23 @@
 package com.theophiluskibet.koin.playground.presentation.theme
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.theophiluskibet.koin.playground.domain.User
-import com.theophiluskibet.koin.playground.domain.UserRepository
+import com.theophiluskibet.domain.models.CharactersDomainModel
+import com.theophiluskibet.domain.repos.CharactersRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
-    private val _users = MutableLiveData<List<User>>()
-    val users: LiveData<List<User>> get() = _users
+class UserViewModel(private val userRepository: CharactersRepository) : ViewModel() {
+    private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
+    val uiState: StateFlow<UiState> get() = _uiState
 
     init {
         getUsers()
@@ -20,7 +25,11 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private fun getUsers() {
         viewModelScope.launch {
-            _users.value = userRepository.getUsers()
+            val results = userRepository.getCharacters()
+            _uiState.update {
+                UiState.Success(results)
+            }
+            Log.d("UserViewModel", "getUsers: ${results}")
         }
     }
 }

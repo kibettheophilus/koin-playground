@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google {
@@ -21,4 +23,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "koin-playground"
 include(":app")
- 
+include(":core:data")
+//include(":core:local")
+include(":core:remote")
+include(":core:domain")

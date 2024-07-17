@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,17 +26,26 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         val viewModel: UserViewModel by viewModel()
 
-        val users = viewModel.users.value!!
         setContent {
             KoinplaygroundTheme {
+                val uiState = viewModel.uiState.collectAsState().value
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LazyColumn(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        items(users) { user ->
-                            Text(text = user.name)
+                    when (uiState) {
+                        is UiState.Loading -> CircularProgressIndicator(modifier = Modifier)
+                        is UiState.Error -> {
+                            Text(text = uiState.message)
+                        }
+
+                        is UiState.Success -> {
+                            LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                items(uiState.data) { user ->
+                                    Text(text = user.name)
+                                }
+                            }
                         }
                     }
                 }

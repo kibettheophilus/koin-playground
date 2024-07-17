@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
     buildFeatures {
         compose = true
@@ -49,14 +49,14 @@ android {
         }
     }
 
-    sourceSets {
-        getByName("main") {
-            java.srcDir("src/main/kotlin")
-        }
-        getByName("test") {
-            java.srcDir("src/test/kotlin")
-        }
-    }
+//    sourceSets {
+//        getByName("main") {
+//            java.srcDir("src/main/kotlin")
+//        }
+//        getByName("test") {
+//            java.srcDir("src/test/kotlin")
+//        }
+//    }
 
     // For KSP
     applicationVariants.configureEach {
@@ -81,6 +81,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
 
     // koin
     implementation(libs.koin.core)
