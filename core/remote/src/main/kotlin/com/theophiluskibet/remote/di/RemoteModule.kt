@@ -16,16 +16,4 @@ class RemoteModule {
 
     @Single
     fun provideHttpEngine(): HttpClientEngine = OkHttp.create()
-
-    @Single
-    fun provideHttpClient(engine: HttpClientEngine) = HttpClient(engine) {
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    ignoreUnknownKeys = true
-                    isLenient = true
-                }
-            )
-        }
-    }
 }
