@@ -1,15 +1,11 @@
 package com.theophiluskibet.koin.playground.presentation.theme
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.theophiluskibet.domain.models.CharactersDomainModel
 import com.theophiluskibet.domain.repos.CharactersRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
@@ -29,7 +25,7 @@ class UserViewModel(private val userRepository: CharactersRepository) : ViewMode
             _uiState.update {
                 UiState.Success(results)
             }
-            Log.d("UserViewModel", "getUsers: ${results}")
+            Log.d("UserViewModel", "getUsers: $results")
         }
     }
 }

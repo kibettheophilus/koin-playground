@@ -20,7 +20,6 @@ dependencies {
     testImplementation("io.ktor:ktor-client-mock:2.3.11")
 }
 
-
 android {
     namespace = "com.theophiluskibet.remote"
     compileSdk = 34
@@ -36,7 +35,7 @@ android {
     libraryVariants.configureEach {
         kotlin.sourceSets {
             getByName(name) {
-                kotlin.srcDir("build/generated/ksp/${name}/kotlin")
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
             }
         }
     }

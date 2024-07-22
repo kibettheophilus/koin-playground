@@ -8,6 +8,5 @@ import org.koin.core.annotation.Single
 
 @Single
 class CharactersApi(private val client: HttpClient) {
-    suspend fun getCharacters(): CharacterResponse =
-        client.get("https://rickandmortyapi.com/api/character").body()
+    suspend fun getCharacters(): CharacterResponse = client.get("https://rickandmortyapi.com/api/character").body()
 }

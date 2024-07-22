@@ -8,13 +8,14 @@ import kotlinx.serialization.json.Json
 import org.koin.core.annotation.Single
 
 @Single
-fun provideHttpClient(engine: HttpClientEngine) = HttpClient(engine) {
-    install(ContentNegotiation) {
-        json(
-            Json {
-                ignoreUnknownKeys = true
-                isLenient = true
-            }
-        )
+fun provideHttpClient(engine: HttpClientEngine) =
+    HttpClient(engine) {
+        install(ContentNegotiation) {
+            json(
+                Json {
+                    ignoreUnknownKeys = true
+                    isLenient = true
+                },
+            )
+        }
     }
-}
