@@ -17,7 +17,9 @@ dependencies {
     // ktor
     implementation(libs.bundles.ktor)
 
+    testImplementation("io.ktor:ktor-client-mock:2.3.11")
 }
+
 
 android {
     namespace = "com.theophiluskibet.remote"

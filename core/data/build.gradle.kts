@@ -9,7 +9,7 @@ ksp {
 }
 
 dependencies {
-   // implementation(projects.core.local)
+    implementation(projects.core.local)
     implementation(projects.core.remote)
     implementation(projects.core.domain)
     // koin
@@ -17,9 +17,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
     ksp(libs.koin.compiler)
-
-    testImplementation("io.ktor:ktor-client-mock:2.3.11")
-
 }
 
 android {
