@@ -6,13 +6,12 @@ import com.theophiluskibet.domain.models.CharactersDomainModel
 import com.theophiluskibet.domain.repos.CharactersRepository
 import com.theophiluskibet.local.dao.CharactersDao
 import com.theophiluskibet.remote.api.CharactersApi
-import org.koin.core.annotation.InjectedParam
 import org.koin.core.annotation.Single
 
 @Single
 class CharactersRepositoryImpl(
     private val charactersApi: CharactersApi,
-    private val charactersDao: CharactersDao
+    private val charactersDao: CharactersDao,
 ) : CharactersRepository {
     override suspend fun getCharacters(): List<CharactersDomainModel> {
         // return charactersApi.getCharacters().results.map { it.toDomain() }

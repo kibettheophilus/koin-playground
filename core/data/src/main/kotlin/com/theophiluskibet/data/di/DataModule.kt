@@ -14,11 +14,9 @@ import org.koin.core.annotation.Single
 @Module(includes = [RemoteModule::class, LocalModule::class])
 @ComponentScan("com.theophiluskibet.data")
 class DataModule {
-
     @Single
     fun provideCharactersRepository(
         @InjectedParam charactersApi: CharactersApi,
-        @InjectedParam charactersDao: CharactersDao
+        @InjectedParam charactersDao: CharactersDao,
     ): CharactersRepository = CharactersRepositoryImpl(charactersApi, charactersDao)
-
 }

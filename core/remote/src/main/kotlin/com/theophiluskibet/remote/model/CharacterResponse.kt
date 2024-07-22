@@ -1,12 +1,11 @@
 package com.theophiluskibet.remote.model
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class CharacterResponse(
     val info: Info,
-    val results: List<CharacterDto>
+    val results: List<CharacterDto>,
 )
 
 @Serializable
@@ -31,17 +30,17 @@ data class CharacterDto(
     val species: String,
     val status: String,
     val type: String,
-    val url: String
+    val url: String,
 )
 
 @Serializable
 data class Location(
     val name: String,
-    val url: String
+    val url: String,
 )
 
 @Serializable
 data class Origin(
     val name: String,
-    val url: String
+    val url: String,
 )
