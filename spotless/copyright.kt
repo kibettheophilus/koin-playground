@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Theophilus Kibet
+ * Copyright $YEAR Theophilus Kibet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.theophiluskibet.data.mappers
-
-import com.theophiluskibet.local.entity.CharacterEntity
-import com.theophiluskibet.remote.model.CharacterDto
-
-fun CharacterDto.toEntity() =
-    CharacterEntity(
-        created = created,
-        episode = episode,
-        gender = gender,
-        id = id,
-        image = image,
-        name = name,
-        species = species,
-        type = type,
-        status = status,
-        url = url,
-    )
