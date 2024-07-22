@@ -15,6 +15,9 @@ dependencies {
     implementation(libs.koin.annotations)
     ksp(libs.koin.compiler)
 
+    // room
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
 }
 
 android {
