@@ -18,6 +18,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
+                // For KSP
                 libraryVariants.configureEach {
                     sourceSets {
                         getByName(name) {
