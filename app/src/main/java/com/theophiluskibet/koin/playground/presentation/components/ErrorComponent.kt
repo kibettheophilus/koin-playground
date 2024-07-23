@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.theophiluskibet.koin.playground.presentation.theme
+package com.theophiluskibet.koin.playground.presentation.components
 
-import com.theophiluskibet.domain.models.CharactersDomainModel
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
-sealed interface UiState {
-    data object Loading : UiState
-
-    data class Success(val data: List<CharactersDomainModel>) : UiState
-
-    data class Error(val message: String) : UiState
+@Composable
+fun ErrorComponent(modifier: Modifier = Modifier) {
 }
