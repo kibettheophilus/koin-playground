@@ -15,9 +15,44 @@
  */
 package com.theophiluskibet.koin.playground.presentation.screens.list
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CharacterListScreen(modifier: Modifier = Modifier) {
+fun CharacterListScreen(
+    modifier: Modifier = Modifier,
+    onCharacterClick: (String) -> Unit,
+    viewModel: CharacterListViewModel = koinViewModel(),
+) {
+    val uiState = viewModel.uiState.collectAsState().value
+    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        when (uiState) {
+            is UiState.Loading -> CircularProgressIndicator(modifier = Modifier)
+            is UiState.Error -> {
+                Text(text = uiState.message)
+            }
+
+            is UiState.Success -> {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    items(uiState.data) { character ->
+                        Text(text = character.name)
+                    }
+                }
+            }
+        }
+    }
 }
