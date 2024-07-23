@@ -76,6 +76,7 @@ android {
 
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
+    arg("USE_COMPOSE_VIEWMODEL", "true")
 }
 dependencies {
 
@@ -87,14 +88,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.navigation)
 
     implementation(projects.core.data)
     implementation(projects.core.domain)
 
     // koin
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-    implementation(libs.koin.annotations)
+    implementation(libs.bundles.koin)
+    implementation(libs.koin.compose)
     ksp(libs.koin.compiler)
 
     testImplementation(libs.junit)

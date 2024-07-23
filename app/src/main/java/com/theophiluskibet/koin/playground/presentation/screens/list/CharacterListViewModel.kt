@@ -15,7 +15,6 @@
  */
 package com.theophiluskibet.koin.playground.presentation.screens.list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.theophiluskibet.domain.repos.CharactersRepository
@@ -26,21 +25,20 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class CharacterListViewModel(private val userRepository: CharactersRepository) : ViewModel() {
+class CharacterListViewModel(private val charactersRepository: CharactersRepository) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
     val uiState: StateFlow<UiState> get() = _uiState
 
     init {
-        getUsers()
+        getCharacters()
     }
 
-    private fun getUsers() {
+    private fun getCharacters() {
         viewModelScope.launch {
-            val results = userRepository.getCharacters()
+            val results = charactersRepository.getCharacters()
             _uiState.update {
                 UiState.Success(results)
             }
-            Log.d("UserViewModel", "getUsers: $results")
         }
     }
 }
