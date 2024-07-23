@@ -29,15 +29,13 @@ class CharactersRepositoryImpl(
     override suspend fun getCharacters(): List<CharactersDomainModel> {
         return charactersApi.getCharacters().results.map { it.toDomain() }
 
-    // TODO: uncomment to test
-/*
-        return if (charactersDao.getCharacters().isNotEmpty()) {
-            charactersDao.getCharacters().map { it.toDomain() }
-        } else {
-            val results = charactersApi.getCharacters().results
-            charactersDao.insertCharacters(results.map { it.toEntity() })
-            results.map { it.toDomain() }
-        }
-*/
+        // TODO: uncomment to test
+//        return if (charactersDao.getCharacters().isNotEmpty()) {
+//            charactersDao.getCharacters().map { it.toDomain() }
+//        } else {
+//            val results = charactersApi.getCharacters().results
+//            charactersDao.insertCharacters(results.map { it.toEntity() })
+//            results.map { it.toDomain() }
+//        }
     }
 }
