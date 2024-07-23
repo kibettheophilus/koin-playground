@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.theophiluskibet.koin.playground.presentation.theme
+package com.theophiluskibet.koin.playground.presentation.screens.list
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class UserViewModel(private val userRepository: CharactersRepository) : ViewModel() {
+class CharacterListViewModel(private val userRepository: CharactersRepository) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
     val uiState: StateFlow<UiState> get() = _uiState
 

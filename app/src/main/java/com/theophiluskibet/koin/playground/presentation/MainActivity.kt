@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.theophiluskibet.koin.playground.presentation.theme
+package com.theophiluskibet.koin.playground.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -31,6 +31,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.theophiluskibet.koin.playground.presentation.screens.list.CharacterListViewModel
+import com.theophiluskibet.koin.playground.presentation.screens.list.UiState
 import com.theophiluskibet.koin.playground.ui.theme.KoinplaygroundTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,7 +40,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val viewModel: UserViewModel by viewModel()
+        val viewModel: CharacterListViewModel by viewModel()
 
         setContent {
             KoinplaygroundTheme {
