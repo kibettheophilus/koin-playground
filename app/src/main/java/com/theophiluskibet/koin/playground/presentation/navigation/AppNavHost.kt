@@ -31,9 +31,9 @@ fun AppNavHost(modifier: Modifier = Modifier) {
     NavHost(
         modifier = Modifier,
         navController = navController,
-        startDestination = "home",
+        startDestination = Home,
     ) {
-        composable("home") {
+        composable<Home> {
             CharacterListScreen(
                 onCharacterClick = { id ->
                     navController.navigate("details/$id")
