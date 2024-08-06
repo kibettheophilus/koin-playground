@@ -1,19 +1,20 @@
 [versions]
 agp = "8.6.0-alpha06"
-kotlin = "1.9.0"
-coreKtx = "1.10.1"
+kotlin = "2.0.0"
+coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
-activityCompose = "1.8.0"
-composeBom = "2024.04.01"
-ksp = "1.9.0-1.0.13"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycleRuntimeKtx = "2.8.4"
+activityCompose = "1.9.1"
+composeBom = "2024.06.00"
+ksp = "2.0.0-1.0.24"
 koin = "3.6.0-wasm-alpha2"
 koin-annotations = "1.3.0"
+kotlinx-serialization = "1.7.1"
 ktor = "2.3.12"
 ktlint = "12.1.1"
-navigation = "2.7.0-alpha07"
+navigation = "2.8.0-beta06"
 room = "2.6.1"
 spotless = "6.24.0"
 
@@ -32,7 +33,9 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation" }
+navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
 # koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
@@ -69,3 +72,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
