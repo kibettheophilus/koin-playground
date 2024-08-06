@@ -21,6 +21,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.theophiluskibet.koin.playground.presentation.screens.details.CharacterDetailScreen
 import com.theophiluskibet.koin.playground.presentation.screens.list.CharacterListScreen
 
@@ -36,13 +37,15 @@ fun AppNavHost(modifier: Modifier = Modifier) {
         composable<Home> {
             CharacterListScreen(
                 onCharacterClick = { id ->
-                    navController.navigate("details/$id")
+                    navController.navigate(Details(id = id))
                 },
             )
         }
-        composable("details/{id}") {
+
+        composable<Details> { backStackEntry ->
+            val details: Details = backStackEntry.toRoute()
             CharacterDetailScreen(
-                id = it.arguments?.getString("id").toString(),
+                id = details.id,
                 onNavigateUp = { navController.navigateUp() },
             )
         }
