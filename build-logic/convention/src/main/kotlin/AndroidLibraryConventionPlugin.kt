@@ -18,15 +18,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                // For KSP
-                libraryVariants.configureEach {
-                    sourceSets {
-                        getByName(name) {
-                            kotlin.srcDir("build/generated/ksp/$name/kotlin")
-                        }
-                    }
-                }
-
                 compileSdk = 34
                 defaultConfig {
                     minSdk = 24
