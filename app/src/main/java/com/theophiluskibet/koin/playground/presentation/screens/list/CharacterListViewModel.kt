@@ -18,6 +18,7 @@ package com.theophiluskibet.koin.playground.presentation.screens.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.theophiluskibet.domain.repos.CharactersRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -34,7 +35,7 @@ class CharacterListViewModel(private val charactersRepository: CharactersReposit
     }
 
     private fun getCharacters() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val results = charactersRepository.getCharacters()
             _uiState.update {
                 UiState.Success(results)
