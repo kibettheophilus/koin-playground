@@ -20,7 +20,6 @@ import androidx.room.Room
 import com.theophiluskibet.local.dao.CharactersDao
 import com.theophiluskibet.local.database.CharactersDatabase
 import org.koin.core.annotation.ComponentScan
-import org.koin.core.annotation.InjectedParam
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 
@@ -31,9 +30,7 @@ class LocalModule {
     fun provideDao(database: CharactersDatabase): CharactersDao = database.charactersDao()
 
     @Single
-    fun provideDatabase(
-        context: Context,
-    ): CharactersDatabase =
+    fun provideDatabase(context: Context): CharactersDatabase =
         Room.databaseBuilder(
             context,
             CharactersDatabase::class.java,
