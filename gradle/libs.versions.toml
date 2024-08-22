@@ -9,8 +9,8 @@ lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.06.00"
 ksp = "2.0.0-1.0.24"
-koin = "3.6.0-wasm-alpha2"
-koin-annotations = "1.3.0"
+koin = "4.0.0-RC1"
+koin-annotations = "1.4.0-RC3"
 kotlinx-serialization = "1.7.1"
 ktor = "2.3.12"
 ktlint = "12.1.1"
@@ -41,6 +41,7 @@ kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-compose-one = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
 
