@@ -32,7 +32,7 @@ class LocalModule {
 
     @Single
     fun provideDatabase(
-        @InjectedParam context: Context,
+        context: Context,
     ): CharactersDatabase =
         Room.databaseBuilder(
             context,
