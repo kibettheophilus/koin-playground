@@ -16,12 +16,21 @@
 package com.theophiluskibet.remote.api
 
 import com.theophiluskibet.remote.model.CharacterResponse
+import com.theophiluskibet.remote.utils.ANOTHER_CLIENT
+import com.theophiluskibet.remote.utils.RICKY_MORTY_CLIENT
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
+import org.koin.core.annotation.Named
 import org.koin.core.annotation.Single
 
 @Single
-class CharactersApi(private val client: HttpClient) {
-    suspend fun getCharacters(): CharacterResponse = client.get("https://rickandmortyapi.com/api/character").body()
+class CharactersApi(
+    @Named(RICKY_MORTY_CLIENT) private val rickyMortyClient: HttpClient,
+    @Named(ANOTHER_CLIENT) private val anotherClient: HttpClient,
+) {
+    suspend fun getCharacters(): CharacterResponse = rickyMortyClient.get("character").body()
+
+    suspend fun getSomething() = anotherClient.get("home").bodyAsText()
 }
