@@ -15,15 +15,61 @@
  */
 package com.theophiluskibet.remote.di
 
-import io.ktor.client.engine.HttpClientEngine
+import com.theophiluskibet.remote.utils.ANOTHER_BASE_URL
+import com.theophiluskibet.remote.utils.ANOTHER_CLIENT
+import com.theophiluskibet.remote.utils.RICKY_MORTY_BASEURL
+import com.theophiluskibet.remote.utils.RICKY_MORTY_CLIENT
+import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
+import org.koin.core.annotation.Named
 import org.koin.core.annotation.Single
 
 @Module
 @ComponentScan("com.theophiluskibet.remote")
 class RemoteModule {
     @Single
-    fun provideHttpEngine(): HttpClientEngine = OkHttp.create()
+    @Named(RICKY_MORTY_CLIENT)
+    fun provideRickyMortyClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        ignoreUnknownKeys = true
+                        isLenient = true
+                    },
+                )
+            }
+
+            install(DefaultRequest) {
+                url {
+                    host = RICKY_MORTY_BASEURL
+                }
+            }
+        }
+
+    @Single
+    @Named(ANOTHER_CLIENT)
+    fun provideAnotherClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        ignoreUnknownKeys = true
+                        isLenient = true
+                    },
+                )
+            }
+
+            install(DefaultRequest) {
+                url {
+                    host = ANOTHER_BASE_URL
+                }
+            }
+        }
 }
