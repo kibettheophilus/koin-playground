@@ -17,12 +17,12 @@ plugins {
     id("com.theophiluskibet.library")
 }
 
+android {
+    namespace = "com.theophiluskibet.local"
+}
+
 dependencies {
     // room
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
-}
-
-android {
-    namespace = "com.theophiluskibet.local"
 }

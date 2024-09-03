@@ -18,11 +18,11 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+android {
+    namespace = "com.theophiluskibet.remote"
+}
+
 dependencies {
     // ktor
     implementation(libs.bundles.ktor)
-}
-
-android {
-    namespace = "com.theophiluskibet.remote"
 }
