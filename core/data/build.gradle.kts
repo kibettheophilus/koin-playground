@@ -17,12 +17,12 @@ plugins {
     id("com.theophiluskibet.library")
 }
 
+android {
+    namespace = "com.theophiluskibet.data"
+}
+
 dependencies {
     implementation(projects.core.local)
     implementation(projects.core.remote)
     implementation(projects.core.domain)
-}
-
-android {
-    namespace = "com.theophiluskibet.data"
 }

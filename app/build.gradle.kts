@@ -28,7 +28,6 @@ android {
     defaultConfig {
         applicationId = "com.theophiluskibet.koin.playground"
         minSdk = 24
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
