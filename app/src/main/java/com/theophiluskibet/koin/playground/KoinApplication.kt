@@ -24,9 +24,13 @@
 package com.theophiluskibet.koin.playground
 
 import android.app.Application
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.WorkManager
 import com.theophiluskibet.koin.playground.di.AppModule
+import com.theophiluskibet.sync.workers.sendInfoWorkRequest
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.workmanager.koin.workManagerFactory
 import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
 
@@ -36,7 +40,14 @@ class KoinApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@KoinApplication)
+            workManagerFactory()
             modules(AppModule().module)
         }
+
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "SendInforWorker",
+            ExistingPeriodicWorkPolicy.UPDATE,
+            sendInfoWorkRequest,
+        )
     }
 }

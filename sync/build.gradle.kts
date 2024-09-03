@@ -28,3 +28,10 @@ plugins {
 android {
     namespace = "com.theophiluskibet.sync"
 }
+
+dependencies {
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+
+    api(libs.koin.workmanager)
+}

@@ -76,6 +76,9 @@ ksp {
     arg("KOIN_CONFIG_CHECK", "true")
 }
 dependencies {
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.sync)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -86,9 +89,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.navigation)
-
-    implementation(projects.core.data)
-    implementation(projects.core.domain)
 
     // koin
     implementation(libs.bundles.koin)
