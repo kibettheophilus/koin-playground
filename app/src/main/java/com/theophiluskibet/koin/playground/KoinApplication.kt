@@ -45,7 +45,7 @@ class KoinApplication : Application() {
         }
 
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "SendInforWorker",
+            "SendInfoWorker",
             ExistingPeriodicWorkPolicy.UPDATE,
             sendInfoWorkRequest,
         )
