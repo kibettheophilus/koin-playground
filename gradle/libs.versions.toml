@@ -10,7 +10,7 @@ activityCompose = "1.9.2"
 composeBom = "2024.09.02"
 ksp = "2.0.20-1.0.25"
 koin = "4.0.0"
-koin-annotations = "1.4.0-RC4"
+koin-annotations = "2.0.0-Beta1"
 kotlinx-serialization = "1.7.2"
 ktor = "2.3.12"
 ktlint = "12.1.1"
@@ -40,8 +40,8 @@ kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-
 # koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
-koin-compose-one = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
 koin-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager", version.ref = "koin" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
@@ -63,7 +63,7 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [bundles]
-koin = ["koin-core", "koin-android", "koin-annotations"]
+koin = ["koin-core", "koin-android", "koin-annotations", "koin-androidx-compose"]
 ktor = ["ktor-core", "ktor-okhttp", "ktor-content-negotiation", "ktor-json"]
 
 [plugins]
