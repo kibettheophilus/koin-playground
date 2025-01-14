@@ -27,6 +27,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
+    id("io.kotzilla.kotzilla-plugin")
 }
 
 android {
@@ -97,6 +98,8 @@ dependencies {
     ksp(libs.koin.compiler)
 
     implementation(libs.kotlinx.serialization)
+
+    implementation("io.kotzilla:kotzilla-sdk:0.13.5")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

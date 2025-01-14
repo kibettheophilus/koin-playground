@@ -10,6 +10,12 @@ plugins {
     alias(libs.plugins.spotless)
 }
 
+buildscript {
+    dependencies {
+        classpath("io.kotzilla:kotzilla-plugin:0.13.5")
+    }
+}
+
 allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
