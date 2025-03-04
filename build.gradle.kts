@@ -12,7 +12,7 @@ plugins {
 
 buildscript {
     dependencies {
-        classpath("io.kotzilla:kotzilla-plugin:0.13.5")
+        classpath("io.kotzilla:kotzilla-plugin:0.14.0-RC1")
     }
 }
 

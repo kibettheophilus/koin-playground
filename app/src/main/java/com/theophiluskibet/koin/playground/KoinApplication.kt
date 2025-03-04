@@ -28,8 +28,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.WorkManager
 import com.theophiluskibet.koin.playground.di.AppModule
 import com.theophiluskibet.sync.workers.sendInfoWorkRequest
-import io.kotzilla.sdk.KotzillaSDK
-import io.kotzilla.sdk.analytics.koin.analyticsLogger
+import io.kotzilla.sdk.analytics.koin.analytics
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.workmanager.koin.workManagerFactory
 import org.koin.core.context.startKoin
@@ -38,12 +37,11 @@ import org.koin.ksp.generated.module
 class KoinApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        KotzillaSDK.setup(this)
         startKoin {
-            analyticsLogger()
             androidContext(this@KoinApplication)
             workManagerFactory()
             modules(AppModule().module)
+            analytics()
         }
 
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(

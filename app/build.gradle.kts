@@ -32,7 +32,7 @@ plugins {
 
 android {
     namespace = "com.theophiluskibet.koin.playground"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.theophiluskibet.koin.playground"
@@ -99,7 +99,7 @@ dependencies {
 
     implementation(libs.kotlinx.serialization)
 
-    implementation("io.kotzilla:kotzilla-sdk:0.13.5")
+    implementation("io.kotzilla:kotzilla-sdk:0.14.0-RC1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
