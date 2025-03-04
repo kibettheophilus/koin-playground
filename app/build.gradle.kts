@@ -99,7 +99,7 @@ dependencies {
 
     implementation(libs.kotlinx.serialization)
 
-    implementation("io.kotzilla:kotzilla-sdk:0.14.0-RC1")
+    implementation("io.kotzilla:kotzilla-sdk-ktor3:0.14.0-RC1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
