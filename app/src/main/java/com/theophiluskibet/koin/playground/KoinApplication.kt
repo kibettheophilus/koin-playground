@@ -49,6 +49,5 @@ class KoinApplication : Application() {
             ExistingPeriodicWorkPolicy.UPDATE,
             sendInfoWorkRequest,
         )
-
     }
 }
