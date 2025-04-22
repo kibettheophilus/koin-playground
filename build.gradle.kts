@@ -1,5 +1,11 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
+buildscript {
+    dependencies {
+        classpath(libs.kotzilla.plugin)
+    }
+}
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -8,12 +14,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.ktlint)
     alias(libs.plugins.spotless)
-}
-
-buildscript {
-    dependencies {
-        classpath("io.kotzilla:kotzilla-plugin:1.0.0")
-    }
+    alias(libs.plugins.kotzilla) apply  false
 }
 
 allprojects {

@@ -12,6 +12,7 @@ ksp = "2.1.20-2.0.0"
 koin = "4.0.3-Beta1"
 koin-annotations = "2.0.0-RC4"
 kotlinx-serialization = "1.8.0"
+kotzilla = "1.0.1"
 ktor = "3.1.1"
 ktlint = "12.1.1"
 navigation = "2.8.9"
@@ -62,6 +63,9 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
+kotzilla-sdk-ktor3 = {group = "io.kotzilla", name = "kotzilla-sdk-ktor3", version.ref = "kotzilla" }
+kotzilla-plugin = {group = "io.kotzilla", name = "kotzilla-plugin", version.ref = "kotzilla" }
+
 [bundles]
 koin = ["koin-core", "koin-android", "koin-annotations", "koin-androidx-compose"]
 ktor = ["ktor-core", "ktor-okhttp", "ktor-content-negotiation", "ktor-json"]
@@ -75,3 +79,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotzilla = { id  = "io.kotzilla.kotzilla-plugin", version.ref = "kotzilla" }
