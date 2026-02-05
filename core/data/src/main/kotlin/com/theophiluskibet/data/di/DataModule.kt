@@ -26,6 +26,7 @@ package com.theophiluskibet.data.di
 import com.theophiluskibet.local.di.LocalModule
 import com.theophiluskibet.remote.di.RemoteModule
 import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Configuration
 import org.koin.core.annotation.Module
 
 @Module(
@@ -35,4 +36,5 @@ import org.koin.core.annotation.Module
     ],
 )
 @ComponentScan("com.theophiluskibet.data")
+@Configuration
 class DataModule

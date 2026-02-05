@@ -24,15 +24,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotzilla)
+    alias(libs.plugins.koin.compiler)
 }
 
 android {
     namespace = "com.theophiluskibet.koin.playground"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.theophiluskibet.koin.playground"
@@ -59,9 +59,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
+
     buildFeatures {
         compose = true
     }
@@ -73,10 +71,6 @@ android {
     }
 }
 
-ksp {
-    arg("KOIN_CONFIG_CHECK", "true")
-    arg("KOIN_USE_COMPOSE_VIEWMODEL", "true")
-}
 dependencies {
     implementation(projects.core.data)
     implementation(projects.core.domain)
@@ -95,7 +89,6 @@ dependencies {
     // koin
     implementation(libs.bundles.koin)
     implementation(libs.koin.compose)
-    ksp(libs.koin.compiler)
 
     implementation(libs.kotlinx.serialization)
 

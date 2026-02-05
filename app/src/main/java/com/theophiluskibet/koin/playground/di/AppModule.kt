@@ -25,8 +25,10 @@ package com.theophiluskibet.koin.playground.di
 
 import com.theophiluskibet.sync.di.SyncModule
 import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Configuration
 import org.koin.core.annotation.Module
 
 @Module(includes = [SyncModule::class])
 @ComponentScan("com.theophiluskibet.koin.playground")
+@Configuration
 class AppModule
