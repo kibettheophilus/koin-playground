@@ -14,7 +14,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.ktlint)
     alias(libs.plugins.spotless)
-    alias(libs.plugins.kotzilla) apply  false
+    alias(libs.plugins.kotzilla) apply false
     alias(libs.plugins.koin.compiler) apply false
 }
 
