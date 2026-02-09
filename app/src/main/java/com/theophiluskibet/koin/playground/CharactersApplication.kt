@@ -26,21 +26,20 @@ package com.theophiluskibet.koin.playground
 import android.app.Application
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.WorkManager
-import com.theophiluskibet.koin.playground.di.AppModule
 import com.theophiluskibet.sync.workers.sendInfoWorkRequest
 import io.kotzilla.sdk.analytics.koin.analytics
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.workmanager.koin.workManagerFactory
-import org.koin.core.context.startKoin
-import org.koin.ksp.generated.module
+import org.koin.core.annotation.KoinApplication
+import org.koin.plugin.module.dsl.startKoin
 
-class KoinApplication : Application() {
+@KoinApplication
+class CharactersApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        startKoin {
-            androidContext(this@KoinApplication)
+        startKoin<CharactersApplication> {
+            androidContext(this@CharactersApplication)
             workManagerFactory()
-            modules(AppModule().module)
             analytics()
         }
 

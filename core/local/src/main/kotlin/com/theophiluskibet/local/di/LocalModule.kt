@@ -28,11 +28,13 @@ import androidx.room.Room
 import com.theophiluskibet.local.dao.CharactersDao
 import com.theophiluskibet.local.database.CharactersDatabase
 import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Configuration
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 
 @Module
 @ComponentScan("com.theophiluskibet.local")
+@Configuration
 class LocalModule {
     @Single
     fun provideDao(database: CharactersDatabase): CharactersDao = database.charactersDao()

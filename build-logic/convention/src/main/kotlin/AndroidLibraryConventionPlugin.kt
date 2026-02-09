@@ -1,10 +1,8 @@
 import com.android.build.gradle.LibraryExtension
-import com.google.devtools.ksp.gradle.KspExtension
 import com.theophiluskibet.libs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
@@ -14,11 +12,11 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
-                apply("com.google.devtools.ksp")
+                apply("io.insert-koin.compiler.plugin")
             }
 
             extensions.configure<LibraryExtension> {
-                compileSdk = 35
+                compileSdk = 36
                 defaultConfig {
                     minSdk = 24
                 }
@@ -28,13 +26,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 }
             }
 
-            extensions.configure<KspExtension> {
-                arg("KOIN_CONFIG_CHECK", "true")
-            }
-
             dependencies {
                 add("implementation", libs.findBundle("koin").get())
-                add("ksp", libs.findLibrary("koin.compiler").get())
             }
         }
     }

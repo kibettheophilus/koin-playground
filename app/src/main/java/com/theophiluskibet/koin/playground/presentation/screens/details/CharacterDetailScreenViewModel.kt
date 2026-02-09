@@ -25,8 +25,8 @@ package com.theophiluskibet.koin.playground.presentation.screens.details
 
 import androidx.lifecycle.ViewModel
 import com.theophiluskibet.domain.repos.CharactersRepository
-import org.koin.android.annotation.KoinViewModel
+import org.koin.core.annotation.KoinViewModel
 
 @KoinViewModel
-class ChacterDetailScreenViewModel(private val charactersRepository: CharactersRepository) :
+class CharacterDetailScreenViewModel(private val charactersRepository: CharactersRepository) :
     ViewModel()

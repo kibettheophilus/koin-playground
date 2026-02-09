@@ -23,6 +23,7 @@
  */
 plugins {
     id("com.theophiluskibet.library")
+    alias(libs.plugins.ksp)
 }
 
 android {
